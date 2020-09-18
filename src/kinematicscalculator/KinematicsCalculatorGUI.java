@@ -139,6 +139,7 @@ public class KinematicsCalculatorGUI extends javax.swing.JFrame {
 
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         
+        // adding this comment to test GitHub and stuff
         // setting the text labels to strings
         String svel1 = vel1.getText();
         String svel2 = vel2.getText();
