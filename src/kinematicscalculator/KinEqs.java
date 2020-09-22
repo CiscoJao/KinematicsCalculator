@@ -109,16 +109,19 @@ public class KinEqs {
         return ans;
     }
     
-    static double[] findVel1AndTime(String svel2, String sacc, String sdis) {
-        double vel2, acc, dis;
+    static String[] findVel1AndTime(String svel2, String sacc, String sdis) {
+        double vel1, vel2, acc, dis, time1, time2;
         vel2 = Double.parseDouble(svel2);
         acc = Double.parseDouble(sacc);
         dis = Double.parseDouble(sdis);
         
-        // ans[0] = vel1, ans[1] = time
-        double[] ans = new double[TWO];
-        ans[0] = sqrt(pow(vel2, TWO) - (TWO * acc * dis));
-        ans[1] = (vel2 - ans[0]) / acc;
+        vel1 = sqrt(pow(vel2, TWO) - (TWO * acc * dis));
+        time1 = (-vel2 + (sqrt(pow(vel2, TWO) - TWO * acc * dis))) / -acc;
+        time2 = (-vel2 - (sqrt(pow(vel2, TWO) - TWO * acc * dis))) / -acc;
+
+        String[] ans = new String[TWO];
+        ans[0] = String.valueOf(vel1);
+        ans[1] = time1 + " or " + time2;
         
         return ans;
     }
@@ -151,16 +154,19 @@ public class KinEqs {
         return ans;
     }
     
-    static double[] findVel2AndTime(String svel1, String sacc, String sdis) {
-        double vel1, acc, dis;
+    static String[] findVel2AndTime(String svel1, String sacc, String sdis) {
+        double vel1, vel2, acc, dis, time1, time2;
         vel1 = Double.parseDouble(svel1);
         acc = Double.parseDouble(sacc);
         dis = Double.parseDouble(sdis);
         
-        // ans[0] = vel2, ans[1] = time
-        double[] ans = new double[TWO];
-        ans[0] = sqrt(pow(vel1, TWO) + (TWO * acc * dis));
-        ans[1] = (ans[0] - vel1) / acc;
+        vel2 = sqrt(pow(vel1, TWO) + (TWO * acc * dis));
+        time1 = (-vel1 + (sqrt(pow(vel1, TWO) + TWO * acc * dis))) / acc;
+        time2 = (-vel1 - (sqrt(pow(vel1, TWO) + TWO * acc * dis))) / acc;
+
+        String[] ans = new String[TWO];
+        ans[0] = String.valueOf(vel2);
+        ans[1] = time1 + " or " + time2;
         
         return ans;
     }

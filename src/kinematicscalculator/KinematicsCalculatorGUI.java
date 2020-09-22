@@ -139,7 +139,6 @@ public class KinematicsCalculatorGUI extends javax.swing.JFrame {
 
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         
-        // adding this comment to test GitHub and stuff
         // setting the text labels to strings
         String svel1 = vel1.getText();
         String svel2 = vel2.getText();
@@ -148,6 +147,7 @@ public class KinematicsCalculatorGUI extends javax.swing.JFrame {
         String stime = time.getText();
         String ans1, ans2;
         double[] ans = new double[2];
+        String[] ansTime = new String[2];
         
         // error checking
         if(OtherMethods.checkEmpty(svel1, svel2, sacc, sdis, stime) > 2) {
@@ -211,11 +211,9 @@ public class KinematicsCalculatorGUI extends javax.swing.JFrame {
                     break;
                 case 9:
                     // solve for initial velocity and time
-                    ans = KinEqs.findVel1AndTime(svel2, sacc, sdis);
-                    ans1 = String.valueOf(ans[0]);
-                    ans2 = String.valueOf(ans[1]);
-                    vel1.setText(ans1);
-                    time.setText(ans2);
+                    ansTime = KinEqs.findVel1AndTime(svel2, sacc, sdis);
+                    vel1.setText(ansTime[0]);
+                    time.setText(ansTime[1]);
                     break;
                 case 10:
                     // solve for final velocity and acceleration
@@ -235,11 +233,9 @@ public class KinematicsCalculatorGUI extends javax.swing.JFrame {
                     break;
                 case 12:
                     // solve for final veloicty and time
-                    ans = KinEqs.findVel2AndTime(svel1, sacc, sdis);
-                    ans1 = String.valueOf(ans[0]);
-                    ans2 = String.valueOf(ans[1]);
-                    vel2.setText(ans1);
-                    time.setText(ans2);
+                    ansTime = KinEqs.findVel2AndTime(svel1, sacc, sdis);
+                    vel2.setText(ansTime[0]);
+                    time.setText(ansTime[1]);
                     break;
                 case 13:
                     // solve for acceleration and displacement
