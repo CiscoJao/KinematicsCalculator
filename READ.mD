@@ -1,1 +1,0 @@
-A calculator for computing the basic kinematic equations in physics.
